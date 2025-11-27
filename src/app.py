@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import pickle
+import pandas as pd
 import numpy as np
 
 app = Flask(__name__)
@@ -8,6 +9,12 @@ app = Flask(__name__)
 
 with open("knn_classifier_k10_manhattan_distance.sav", "rb") as f:
     model = pickle.load(f)
+
+columns = [
+    "fixed acidity", "volatile acidity", "citric acid", "residual sugar",
+    "chlorides", "free sulfur dioxide", "total sulfur dioxide",
+    "density", "pH", "sulphates", "alcohol"
+]
 
 class_dict = {
     "0": "Calidad Baja",
@@ -26,9 +33,9 @@ def home():
             value = float(request.form[f"val{i}"])
             inputs.append(value)
         
-        X = np.array([inputs])
+        X = pd.DataFrame([inputs], columns= columns)
         prediction = model.predict(X)[0]
-        pred_class = class_dict[prediction]
+        pred_class = class_dict[int(prediction)]
     else:
         pred_class = None
     return render_template("index.html", prediction = pred_class)
