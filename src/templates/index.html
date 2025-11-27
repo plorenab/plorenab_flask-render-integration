@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wine Quality - Model Prediction</title>
+</head>
+<body>
+    <h2>Introduce the values for wine characteristics</h2>
+    
+    <form action="/" method="post">
+
+        Fixed acidity: 
+        <input type="number" step="any" name="val1" required><br><br>
+
+        Volatile acidity: 
+        <input type="number" step="any" name="val2" required><br><br>
+
+        Citric acid: 
+        <input type="number" step="any" name="val3" required><br><br>
+
+        Residual sugar: 
+        <input type="number" step="any" name="val4" required><br><br>
+
+        Chlorides: 
+        <input type="number" step="any" name="val5" required><br><br>
+
+        Free sulfur dioxide: 
+        <input type="number" step="any" name="val6" required><br><br>
+
+        Total sulfur dioxide: 
+        <input type="number" step="any" name="val7" required><br><br>
+
+        Density: 
+        <input type="number" step="any" name="val8" required><br><br>
+
+        pH: 
+        <input type="number" step="any" name="val9" required><br><br>
+
+        Sulphates: 
+        <input type="number" step="any" name="val10" required><br><br>
+
+        Alcohol: 
+        <input type="number" step="any" name="val11" required><br><br>
+
+        <input type="submit" value="Predict">
+    </form>
+    
+    {% if prediction != None %}
+        <h3>Prediction: {{ prediction }}</h3>
+    {% endif %}
+</body>
+</html>
