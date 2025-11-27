@@ -17,9 +17,9 @@ columns = [
 ]
 
 class_dict = {
-    "0": "Calidad Baja",
-    "1": "Calidad Media",
-    "2": "Calidad Alta"
+    0: "Calidad Baja",
+    1: "Calidad Media",
+    2: "Calidad Alta"
 }
 
 @app.route("/", methods=["GET", "POST"])
